@@ -14,9 +14,6 @@ from torch.distributions.categorical import Categorical
 from torch.utils.tensorboard import SummaryWriter
 
 
-
-
-
 def parse_args():
     # fmt: off
     parser = argparse.ArgumentParser()
@@ -339,13 +336,3 @@ if __name__ =='__main__':
 
     envs.close()
     writer.close()
-
-    # Create the evaluation environment
-    eval_env = gym.make(args.env_id)
-
-    package_to_hub(repo_id = args.repo_id,
-                model = agent, # The model we want to save
-                hyperparameters = args,
-                eval_env = gym.make(args.env_id),
-                logs= f"runs/{run_name}",
-                )
