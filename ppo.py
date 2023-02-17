@@ -71,17 +71,12 @@ def parse_args():
         help="the maximum norm for the gradient clipping")
     parser.add_argument("--target-kl", type=float, default=None,
         help="the target KL divergence threshold")
-
-    # Adding HuggingFace argument
-    parser.add_argument("--repo-id", type=str, default="jannikskytt/ppo-implemented-LunarLander-v2", help=" ")
     
     args = parser.parse_args()
     args.batch_size = int(args.num_envs * args.num_steps)
     args.minibatch_size = int(args.batch_size // args.num_minibatches)
     # fmt: on
     return args
-
-
 
 
 def make_env(gym_id, seed, idx, capture_video, run_name):
