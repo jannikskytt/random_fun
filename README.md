@@ -1,2 +1,1 @@
-# random_fun
-Random stuff
+# random stuff
